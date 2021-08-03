@@ -33,7 +33,7 @@ import '../home_page.dart';
 class CustomSplashPage extends StatefulWidget {
   final bool isRoot;
 
-  const CustomSplashPage({Key? key, this.isRoot = true}) : super(key: key);
+  const CustomSplashPage({Key key, this.isRoot = true}) : super(key: key);
 
   @override
   _CustomSplashPageState createState() => _CustomSplashPageState();

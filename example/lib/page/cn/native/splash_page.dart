@@ -68,8 +68,8 @@ class _SplashPageState extends State<SplashPage> {
     );
     var data = jsonEncode(result);
     print(data);
-    ScaffoldMessenger.of(context).showSnackBar(
-      SnackBar(content: Text(data)),
-    );
+    // ScaffoldMessenger.of(context).showSnackBar(
+    //   SnackBar(content: Text(data)),
+    // );
   }
 }

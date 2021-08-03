@@ -28,12 +28,13 @@ final kNativeBannerViewType = 'nullptrx.github.io/pangle_nativebannerview';
 
 abstract class NativeBannerViewPlatform {
   Widget build({
-    required BuildContext context,
-    required Map<String, dynamic> creationParams,
-    required NativeBannerViewPlatformCallbacksHandler
-        bannerViewPlatformCallbacksHandler,
-    NativeBannerViewPlatformCreatedCallback? onBannerViewPlatformCreated,
-    Set<Factory<OneSequenceGestureRecognizer>>? gestureRecognizers,
+    @required BuildContext context,
+    @required Map<String, dynamic> creationParams,
+    @required
+        NativeBannerViewPlatformCallbacksHandler
+            bannerViewPlatformCallbacksHandler,
+    NativeBannerViewPlatformCreatedCallback onBannerViewPlatformCreated,
+    Set<Factory<OneSequenceGestureRecognizer>> gestureRecognizers,
   });
 }
 

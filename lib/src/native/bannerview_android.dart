@@ -32,12 +32,13 @@ import 'bannerview_platform_interface.dart';
 class AndroidNativeBannerView implements NativeBannerViewPlatform {
   @override
   Widget build({
-    required BuildContext context,
-    required Map<String, dynamic> creationParams,
-    required NativeBannerViewPlatformCallbacksHandler
-        bannerViewPlatformCallbacksHandler,
-    NativeBannerViewPlatformCreatedCallback? onBannerViewPlatformCreated,
-    Set<Factory<OneSequenceGestureRecognizer>>? gestureRecognizers,
+    @required BuildContext context,
+    @required Map<String, dynamic> creationParams,
+    @required
+        NativeBannerViewPlatformCallbacksHandler
+            bannerViewPlatformCallbacksHandler,
+    NativeBannerViewPlatformCreatedCallback onBannerViewPlatformCreated,
+    Set<Factory<OneSequenceGestureRecognizer>> gestureRecognizers,
   }) {
     return PlatformViewLink(
         viewType: kNativeBannerViewType,

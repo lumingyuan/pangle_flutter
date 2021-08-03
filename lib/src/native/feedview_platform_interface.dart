@@ -28,12 +28,12 @@ final kNativeFeedViewType = 'nullptrx.github.io/pangle_nativefeedview';
 
 abstract class NativeFeedViewPlatform {
   Widget build({
-    required BuildContext context,
-    required Map<String, dynamic> creationParams,
-    required NativeFeedViewPlatformCallbacksHandler
-        feedViewPlatformCallbacksHandler,
-    NativeFeedViewPlatformCreatedCallback? onFeedViewPlatformCreated,
-    Set<Factory<OneSequenceGestureRecognizer>>? gestureRecognizers,
+    @required BuildContext context,
+    @required Map<String, dynamic> creationParams,
+    @required
+        NativeFeedViewPlatformCallbacksHandler feedViewPlatformCallbacksHandler,
+    NativeFeedViewPlatformCreatedCallback onFeedViewPlatformCreated,
+    Set<Factory<OneSequenceGestureRecognizer>> gestureRecognizers,
   });
 }
 

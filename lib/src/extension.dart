@@ -20,6 +20,6 @@
  * SOFTWARE.
  */
 
-extension CheckNotNull on String? {
+extension CheckNotNull on String {
   bool get isNotBlank => this?.isNotEmpty ?? false;
 }

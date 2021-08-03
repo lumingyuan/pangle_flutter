@@ -32,12 +32,12 @@ import 'platform_interface.dart';
 class AndroidSplashView implements SplashViewPlatform {
   @override
   Widget build({
-    required BuildContext context,
-    required Map<String, dynamic> creationParams,
-    required SplashViewPlatformCallbacksHandler
-        splashViewPlatformCallbacksHandler,
-    SplashViewPlatformCreatedCallback? onSplashViewPlatformCreated,
-    Set<Factory<OneSequenceGestureRecognizer>>? gestureRecognizers,
+    @required BuildContext context,
+    @required Map<String, dynamic> creationParams,
+    @required
+        SplashViewPlatformCallbacksHandler splashViewPlatformCallbacksHandler,
+    SplashViewPlatformCreatedCallback onSplashViewPlatformCreated,
+    Set<Factory<OneSequenceGestureRecognizer>> gestureRecognizers,
   }) {
     return PlatformViewLink(
         viewType: kSplashViewType,
@@ -47,8 +47,9 @@ class AndroidSplashView implements SplashViewPlatform {
         ) {
           return AndroidViewSurface(
             controller: controller as AndroidViewController,
-            gestureRecognizers: gestureRecognizers ??
-                const <Factory<OneSequenceGestureRecognizer>>{},
+            gestureRecognizers: gestureRecognizers == null
+                ? const <Factory<OneSequenceGestureRecognizer>>{}
+                : gestureRecognizers,
             hitTestBehavior: PlatformViewHitTestBehavior.opaque,
           );
         },

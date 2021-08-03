@@ -74,8 +74,8 @@ class _InterstitialExpressPageState extends State<InterstitialExpressPage> {
     );
     var data = jsonEncode(result);
     print(data);
-    ScaffoldMessenger.of(context).showSnackBar(
-      SnackBar(content: Text(data)),
-    );
+    // ScaffoldMessenger.of(context).showSnackBar(
+    //   SnackBar(content: Text(data)),
+    // );
   }
 }

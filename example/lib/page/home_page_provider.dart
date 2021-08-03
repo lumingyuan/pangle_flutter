@@ -27,7 +27,7 @@ import 'package:sprintf/sprintf.dart';
 import '../common/version.dart';
 
 mixin HomePageProviderStateMixin<T extends StatefulWidget> on State<T> {
-  String? _denpendencies;
+  String _denpendencies;
   int _theme = 0;
 
   @override

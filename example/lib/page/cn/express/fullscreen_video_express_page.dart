@@ -84,9 +84,9 @@ class _FullscreenVideoExpressPageState
     );
     var data = jsonEncode(result);
     print(data);
-    ScaffoldMessenger.of(context).showSnackBar(
-      SnackBar(content: Text(data)),
-    );
+    // ScaffoldMessenger.of(context).showSnackBar(
+    //   SnackBar(content: Text(data)),
+    // );
     setState(() {
       _loaded = result.ok;
     });
@@ -105,9 +105,9 @@ class _FullscreenVideoExpressPageState
     );
     var data = jsonEncode(result);
     print(data);
-    ScaffoldMessenger.of(context).showSnackBar(
-      SnackBar(content: Text(data)),
-    );
+    // ScaffoldMessenger.of(context).showSnackBar(
+    //   SnackBar(content: Text(data)),
+    // );
     setState(() {
       _loaded = false;
     });
@@ -124,8 +124,8 @@ class _FullscreenVideoExpressPageState
     );
     var data = jsonEncode(result);
     print(data);
-    ScaffoldMessenger.of(context).showSnackBar(
-      SnackBar(content: Text(data)),
-    );
+    // ScaffoldMessenger.of(context).showSnackBar(
+    //   SnackBar(content: Text(data)),
+    // );
   }
 }

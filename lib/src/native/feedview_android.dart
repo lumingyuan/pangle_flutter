@@ -32,12 +32,12 @@ import 'feedview_platform_interface.dart';
 class AndroidNativeFeedView implements NativeFeedViewPlatform {
   @override
   Widget build({
-    required BuildContext context,
-    required Map<String, dynamic> creationParams,
-    required NativeFeedViewPlatformCallbacksHandler
-        feedViewPlatformCallbacksHandler,
-    NativeFeedViewPlatformCreatedCallback? onFeedViewPlatformCreated,
-    Set<Factory<OneSequenceGestureRecognizer>>? gestureRecognizers,
+    @required BuildContext context,
+    @required Map<String, dynamic> creationParams,
+    @required
+        NativeFeedViewPlatformCallbacksHandler feedViewPlatformCallbacksHandler,
+    NativeFeedViewPlatformCreatedCallback onFeedViewPlatformCreated,
+    Set<Factory<OneSequenceGestureRecognizer>> gestureRecognizers,
   }) {
     return PlatformViewLink(
         viewType: kNativeFeedViewType,

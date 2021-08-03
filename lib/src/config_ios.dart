@@ -20,15 +20,17 @@
  * SOFTWARE.
  */
 
+import 'package:flutter/cupertino.dart';
+
 import 'config.dart';
 import 'constant.dart';
 import 'model.dart';
 
 class IOSConfig implements Config {
   final String appId;
-  final PangleLogLevel? logLevel;
-  final int? coppa;
-  final bool? isPaidApp;
+  final PangleLogLevel logLevel;
+  final int coppa;
+  final bool isPaidApp;
 
   /// Register the ad config for iOS
   ///
@@ -37,7 +39,7 @@ class IOSConfig implements Config {
   /// [coppa] optional. Coppa 0 adult, 1 child
   /// [isPaidApp] optional. Set whether the app is a paid app, the default is a non-paid app.
   const IOSConfig({
-    required this.appId,
+    @required this.appId,
     this.logLevel,
     this.coppa,
     this.isPaidApp,
@@ -57,8 +59,8 @@ class IOSConfig implements Config {
 
 class IOSSplashConfig implements Config {
   final String slotId;
-  final double? tolerateTimeout;
-  final bool? hideSkipButton;
+  final double tolerateTimeout;
+  final bool hideSkipButton;
   final bool isExpress;
 
   /// The splash ad config for iOS
@@ -69,7 +71,7 @@ class IOSSplashConfig implements Config {
   ///    If you hide the skip button, you need to customize the countdown.
   ///  [isExpress] 开屏无模板渲染，默认false
   const IOSSplashConfig({
-    required this.slotId,
+    @required this.slotId,
     this.tolerateTimeout,
     this.hideSkipButton,
     this.isExpress = false,
@@ -89,10 +91,10 @@ class IOSSplashConfig implements Config {
 
 class IOSRewardedVideoConfig implements Config {
   final String slotId;
-  final String? userId;
-  final String? rewardName;
-  final int? rewardAmount;
-  final String? extra;
+  final String userId;
+  final String rewardName;
+  final int rewardAmount;
+  final String extra;
   final PangleLoadingType loadingType;
 
   /// The rewarded video ad config for Android
@@ -109,7 +111,7 @@ class IOSRewardedVideoConfig implements Config {
   /// [extra] optional. serialized string.
   /// [loadingType] optional. 加载广告的类型，默认[PangleLoadingType.normal]
   const IOSRewardedVideoConfig({
-    required this.slotId,
+    @required this.slotId,
     this.userId,
     this.rewardName,
     this.rewardAmount,
@@ -134,7 +136,7 @@ class IOSRewardedVideoConfig implements Config {
 class IOSBannerConfig implements Config {
   final String slotId;
   final PangleExpressSize expressSize;
-  final int? interval;
+  final int interval;
 
   /// The feed ad config for iOS
   ///
@@ -144,8 +146,8 @@ class IOSBannerConfig implements Config {
   ///   and is passed during initialization. If it does not meet the requirements,
   ///   it will not be in carousel ad.
   const IOSBannerConfig({
-    required this.slotId,
-    required this.expressSize,
+    @required this.slotId,
+    @required this.expressSize,
     this.interval,
   });
 
@@ -162,7 +164,7 @@ class IOSBannerConfig implements Config {
 
 class IOSFeedConfig implements Config {
   final String slotId;
-  final int? count;
+  final int count;
   final PangleExpressSize expressSize;
 
   /// The feed ad config for iOS
@@ -171,8 +173,8 @@ class IOSFeedConfig implements Config {
   /// [count] It is recommended to request no more than 3 ads. The maximum is 10. default 3
   /// [expressSize] optional. 模板宽高.
   const IOSFeedConfig({
-    required this.slotId,
-    required this.expressSize,
+    @required this.slotId,
+    @required this.expressSize,
     this.count,
   });
 
@@ -196,8 +198,8 @@ class IOSInterstitialConfig implements Config {
   /// [slotId] required. The unique identifier of a interstitial ad.
   /// [expressSize] optional. 模板宽高.
   const IOSInterstitialConfig({
-    required this.slotId,
-    required this.expressSize,
+    @required this.slotId,
+    @required this.expressSize,
   });
 
   /// Convert config to json
@@ -219,7 +221,7 @@ class IOSFullscreenVideoConfig implements Config {
   /// [slotId] required. The unique identifier of a full screen video ad.
   /// [loadingType] optional. 加载广告的类型，默认[PangleLoadingType.normal]
   const IOSFullscreenVideoConfig({
-    required this.slotId,
+    @required this.slotId,
     this.loadingType = PangleLoadingType.normal,
   });
 

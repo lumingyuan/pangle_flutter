@@ -31,12 +31,13 @@ import 'bannerview_platform_interface.dart';
 class CupertinoNativeBannerView implements NativeBannerViewPlatform {
   @override
   Widget build({
-    BuildContext? context,
-    Map<String, dynamic>? creationParams,
-    required NativeBannerViewPlatformCallbacksHandler
-        bannerViewPlatformCallbacksHandler,
-    NativeBannerViewPlatformCreatedCallback? onBannerViewPlatformCreated,
-    Set<Factory<OneSequenceGestureRecognizer>>? gestureRecognizers,
+    BuildContext context,
+    Map<String, dynamic> creationParams,
+    @required
+        NativeBannerViewPlatformCallbacksHandler
+            bannerViewPlatformCallbacksHandler,
+    NativeBannerViewPlatformCreatedCallback onBannerViewPlatformCreated,
+    Set<Factory<OneSequenceGestureRecognizer>> gestureRecognizers,
   }) {
     return UiKitView(
       viewType: kNativeBannerViewType,

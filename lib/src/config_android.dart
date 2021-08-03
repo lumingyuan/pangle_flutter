@@ -20,28 +20,30 @@
  * SOFTWARE.
  */
 
+import 'package:flutter/cupertino.dart';
+
 import 'config.dart';
 import 'constant.dart';
 import 'model.dart';
 
 class AndroidConfig implements Config {
   final String appId;
-  final bool? debug;
-  final bool? async;
-  final bool? useTextureView;
+  final bool debug;
+  final bool async;
+  final bool useTextureView;
   final AndroidTitleBarTheme titleBarTheme;
-  final bool? allowShowNotify;
-  final bool? allowShowPageWhenScreenLock;
+  final bool allowShowNotify;
+  final bool allowShowPageWhenScreenLock;
   final List<int> directDownloadNetworkType;
   final bool supportMultiProcess;
-  final bool? isPaidApp;
-  final bool? isCanUseLocation;
-  final PangleLocation? location;
-  final bool? isCanUsePhoneState;
-  final String? devImei;
-  final bool? isCanUseWifiState;
-  final bool? isCanUseWriteExternal;
-  final String? devOaid;
+  final bool isPaidApp;
+  final bool isCanUseLocation;
+  final PangleLocation location;
+  final bool isCanUsePhoneState;
+  final String devImei;
+  final bool isCanUseWifiState;
+  final bool isCanUseWriteExternal;
+  final String devOaid;
 
   /// Register the ad config for Android
   ///
@@ -64,7 +66,7 @@ class AndroidConfig implements Config {
   /// [isCanUseWriteExternal] （仅国内）是否允许SDK主动使用WRITE_EXTERNAL_STORAGE权限。true可以使用，false禁止使用。默认为true
   /// [devOaid] （仅国内）开发者可以传入oaid
   const AndroidConfig({
-    required this.appId,
+    @required this.appId,
     this.debug,
     this.async,
     this.allowShowNotify,
@@ -110,11 +112,11 @@ class AndroidConfig implements Config {
 
 class AndroidSplashConfig implements Config {
   final String slotId;
-  final double? tolerateTimeout;
-  final bool? hideSkipButton;
+  final double tolerateTimeout;
+  final bool hideSkipButton;
   final bool isExpress;
   final bool isSupportDeepLink;
-  final PangleExpressSize? expressSize;
+  final PangleExpressSize expressSize;
 
   /// The splash ad config for Android
   ///
@@ -125,7 +127,7 @@ class AndroidSplashConfig implements Config {
   /// [isExpress] 开屏广告无模板渲染，默认false
   /// [expressSize] optional. 模板宽高
   const AndroidSplashConfig({
-    required this.slotId,
+    @required this.slotId,
     this.tolerateTimeout,
     this.hideSkipButton,
     this.isSupportDeepLink = true,
@@ -149,14 +151,14 @@ class AndroidSplashConfig implements Config {
 
 class AndroidRewardedVideoConfig implements Config {
   final String slotId;
-  final String? userId;
-  final String? rewardName;
-  final int? rewardAmount;
-  final String? extra;
+  final String userId;
+  final String rewardName;
+  final int rewardAmount;
+  final String extra;
   final bool isVertical;
   final bool isSupportDeepLink;
-  final PangleLoadingType? loadingType;
-  final PangleExpressSize? expressSize;
+  final PangleLoadingType loadingType;
+  final PangleExpressSize expressSize;
 
   /// The rewarded video ad config for Android
   ///
@@ -175,7 +177,7 @@ class AndroidRewardedVideoConfig implements Config {
   /// [loadingType] optional. 加载广告的类型，默认[PangleLoadingType.normal]
   /// [expressSize] optional. 模板宽高
   const AndroidRewardedVideoConfig({
-    required this.slotId,
+    @required this.slotId,
     this.userId,
     this.rewardName,
     this.rewardAmount,
@@ -212,7 +214,7 @@ class AndroidBannerConfig implements Config {
   final String slotId;
   final bool isSupportDeepLink;
   final PangleExpressSize expressSize;
-  final int? interval;
+  final int interval;
 
   /// The feed ad config for Android
   ///
@@ -223,8 +225,8 @@ class AndroidBannerConfig implements Config {
   ///   and is passed during initialization. If it does not meet the requirements,
   ///   it will not be in carousel ad.
   const AndroidBannerConfig({
-    required this.slotId,
-    required this.expressSize,
+    @required this.slotId,
+    @required this.expressSize,
     this.isSupportDeepLink = true,
     this.interval,
   });
@@ -245,7 +247,7 @@ class AndroidNativeBannerConfig implements Config {
   final String slotId;
   final bool isSupportDeepLink;
   final PangleSize size;
-  final int? interval;
+  final int interval;
 
   /// The feed ad config for Android
   ///
@@ -256,8 +258,8 @@ class AndroidNativeBannerConfig implements Config {
   ///   and is passed during initialization. If it does not meet the requirements,
   ///   it will not be in carousel ad.
   const AndroidNativeBannerConfig({
-    required this.slotId,
-    required this.size,
+    @required this.slotId,
+    @required this.size,
     this.isSupportDeepLink = true,
     this.interval,
   });
@@ -276,7 +278,7 @@ class AndroidNativeBannerConfig implements Config {
 
 class AndroidFeedConfig implements Config {
   final String slotId;
-  final int? count;
+  final int count;
   final bool isSupportDeepLink;
   final PangleExpressSize expressSize;
 
@@ -287,8 +289,8 @@ class AndroidFeedConfig implements Config {
   /// [isSupportDeepLink] optional. Whether to support deeplink.
   /// [isExpress] optional. 个性化模板广告
   const AndroidFeedConfig({
-    required this.slotId,
-    required this.expressSize,
+    @required this.slotId,
+    @required this.expressSize,
     this.count,
     this.isSupportDeepLink = true,
   });
@@ -316,8 +318,8 @@ class AndroidInterstitialConfig implements Config {
   /// [isSupportDeepLink] optional. Whether to support deep link. default true.
   /// [expressSize] optional. 模板宽高
   const AndroidInterstitialConfig({
-    required this.slotId,
-    required this.expressSize,
+    @required this.slotId,
+    @required this.expressSize,
     this.isSupportDeepLink = true,
   });
 
@@ -337,7 +339,7 @@ class AndroidFullscreenVideoConfig implements Config {
   final bool isSupportDeepLink;
   final PangleOrientation orientation;
   final PangleLoadingType loadingType;
-  final PangleExpressSize? expressSize;
+  final PangleExpressSize expressSize;
 
   /// The full screen video ad config for Android
   ///
@@ -347,7 +349,7 @@ class AndroidFullscreenVideoConfig implements Config {
   /// [loadingType] optional. 加载广告的类型，默认[PangleLoadingType.normal]
   /// [expressSize] optional. 模板宽高
   const AndroidFullscreenVideoConfig({
-    required this.slotId,
+    @required this.slotId,
     this.isSupportDeepLink = true,
     this.orientation = PangleOrientation.veritical,
     this.loadingType = PangleLoadingType.normal,

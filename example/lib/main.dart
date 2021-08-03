@@ -53,7 +53,7 @@ void main() async {
 
 /// 范例入口
 class PangleApp extends StatelessWidget {
-  const PangleApp({Key? key}) : super(key: key);
+  const PangleApp({Key key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

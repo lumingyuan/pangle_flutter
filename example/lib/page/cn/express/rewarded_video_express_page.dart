@@ -81,9 +81,9 @@ class _RewardedVideoExpressPageState extends State<RewardedVideoExpressPage> {
     );
     var data = jsonEncode(result);
     print(data);
-    ScaffoldMessenger.of(context).showSnackBar(
-      SnackBar(content: Text(data)),
-    );
+    // ScaffoldMessenger.of(context).showSnackBar(
+    //   SnackBar(content: Text(data)),
+    // );
   }
 
   _onTapShow() async {
@@ -99,9 +99,9 @@ class _RewardedVideoExpressPageState extends State<RewardedVideoExpressPage> {
     );
     var data = jsonEncode(result);
     print(data);
-    ScaffoldMessenger.of(context).showSnackBar(
-      SnackBar(content: Text(data)),
-    );
+    // ScaffoldMessenger.of(context).showSnackBar(
+    //   SnackBar(content: Text(data)),
+    // );
   }
 
   _onTapShowAndLoad() async {
@@ -117,8 +117,8 @@ class _RewardedVideoExpressPageState extends State<RewardedVideoExpressPage> {
     );
     var data = jsonEncode(result);
     print(data);
-    ScaffoldMessenger.of(context).showSnackBar(
-      SnackBar(content: Text(data)),
-    );
+    // ScaffoldMessenger.of(context).showSnackBar(
+    //   SnackBar(content: Text(data)),
+    // );
   }
 }

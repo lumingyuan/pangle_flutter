@@ -38,8 +38,8 @@ class FeedExpressPage extends StatefulWidget {
 
 class Item {
   bool isAd;
-  String? id;
-  String? feedId;
+  String id;
+  String feedId;
 
   Item({this.isAd = false, this.feedId, this.id});
 }
@@ -50,7 +50,7 @@ class Item {
 
 class _FeedExpressPageState extends State<FeedExpressPage> {
   final items = <Item>[];
-  final feedIds = <String?>[];
+  final feedIds = <String>[];
 
   final _bodyKey = GlobalKey();
   final _otherKey = GlobalKey();
@@ -127,7 +127,7 @@ class _FeedExpressPageState extends State<FeedExpressPage> {
               _initConstraintBounds(controller);
             },
             onDislike: (option, enforce) {
-              pangle.removeFeedAd([item.feedId!]);
+              pangle.removeFeedAd([item.feedId]);
               setState(() {
                 items.removeAt(index);
               });
@@ -193,7 +193,7 @@ class _FeedExpressPageState extends State<FeedExpressPage> {
 
   /// 移除广告
   _removeFeedAd() async {
-    int? count = await pangle.removeFeedAd(feedIds as List<String>);
+    int count = await pangle.removeFeedAd(feedIds as List<String>);
     print('Feed Ad Removed: $count');
   }
 
@@ -202,13 +202,12 @@ class _FeedExpressPageState extends State<FeedExpressPage> {
       return;
     }
 
-    RenderBox bodyBox =
-        _bodyKey.currentContext!.findRenderObject() as RenderBox;
+    RenderBox bodyBox = _bodyKey.currentContext.findRenderObject() as RenderBox;
     final bodyBound = PangleHelper.fromRenderBox(bodyBox);
     controller.updateTouchableBounds([bodyBound]);
 
     RenderBox otherBox =
-        _otherKey.currentContext!.findRenderObject() as RenderBox;
+        _otherKey.currentContext.findRenderObject() as RenderBox;
     final otherBound = PangleHelper.fromRenderBox(otherBox);
 
     controller.updateRestrictedBounds([otherBound]);

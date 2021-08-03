@@ -41,7 +41,7 @@ typedef void NativeBannerViewCreatedCallback(
 
 class NativeBannerView extends StatefulWidget {
   const NativeBannerView({
-    Key? key,
+    Key key,
     this.iOS,
     this.android,
     this.onBannerViewCreated,
@@ -52,11 +52,11 @@ class NativeBannerView extends StatefulWidget {
     this.onError,
   }) : super(key: key);
 
-  final IOSBannerConfig? iOS;
-  final AndroidNativeBannerConfig? android;
+  final IOSBannerConfig iOS;
+  final AndroidNativeBannerConfig android;
 
   /// If not null invoked once the banner view is created.
-  final NativeBannerViewCreatedCallback? onBannerViewCreated;
+  final NativeBannerViewCreatedCallback onBannerViewCreated;
 
   /// Which gestures should be consumed by the banner view.
   ///
@@ -67,9 +67,9 @@ class NativeBannerView extends StatefulWidget {
   ///
   /// When this set is empty or null, the banner view will only handle pointer events for gestures that
   /// were not claimed by any other gesture recognizer.
-  final Set<Factory<OneSequenceGestureRecognizer>>? gestureRecognizers;
+  final Set<Factory<OneSequenceGestureRecognizer>> gestureRecognizers;
 
-  static NativeBannerViewPlatform? _platform;
+  static NativeBannerViewPlatform _platform;
 
   /// Sets a custom [BannerViewPlatform].
   ///
@@ -78,7 +78,7 @@ class NativeBannerView extends StatefulWidget {
   /// Setting `platform` doesn't affect [NativeBannerView]s that were already created.
   ///
   /// The default value is [AndroidBannerView] on Android and [CupertinoBannerView] on iOS.
-  static set platform(NativeBannerViewPlatform? platform) {
+  static set platform(NativeBannerViewPlatform platform) {
     _platform = platform;
   }
 
@@ -99,11 +99,11 @@ class NativeBannerView extends StatefulWidget {
               "Trying to use the default bannerview implementation for $defaultTargetPlatform but there isn't a default one");
       }
     }
-    return _platform!;
+    return _platform;
   }
 
-  Config? get config {
-    Config? config;
+  Config get config {
+    Config config;
     switch (defaultTargetPlatform) {
       case TargetPlatform.android:
         config = android;
@@ -122,16 +122,16 @@ class NativeBannerView extends StatefulWidget {
   _NativeBannerViewState createState() => _NativeBannerViewState();
 
   /// 广告被点击
-  final VoidCallback? onClick;
+  final VoidCallback onClick;
 
   /// 广告展示
-  final VoidCallback? onShow;
+  final VoidCallback onShow;
 
   /// 点击了关闭按钮（不喜欢）
-  final PangleOptionCallback? onDislike;
+  final PangleOptionCallback onDislike;
 
   /// 获取广告失败
-  final PangleMessageCallback? onError;
+  final PangleMessageCallback onError;
 }
 
 class _NativeBannerViewState extends State<NativeBannerView>
@@ -139,7 +139,7 @@ class _NativeBannerViewState extends State<NativeBannerView>
   final Completer<NativeBannerViewController> _controller =
       Completer<NativeBannerViewController>();
 
-  _PlatformCallbacksHandler? _platformCallbacksHandler;
+  _PlatformCallbacksHandler _platformCallbacksHandler;
 
   @override
   bool get wantKeepAlive => true;
@@ -149,8 +149,8 @@ class _NativeBannerViewState extends State<NativeBannerView>
     super.build(context);
     return NativeBannerView.platform.build(
       context: context,
-      creationParams: widget.config!.toJSON(),
-      bannerViewPlatformCallbacksHandler: _platformCallbacksHandler!,
+      creationParams: widget.config.toJSON(),
+      bannerViewPlatformCallbacksHandler: _platformCallbacksHandler,
       onBannerViewPlatformCreated: _onWebViewPlatformCreated,
       gestureRecognizers: widget.gestureRecognizers,
     );
@@ -166,7 +166,7 @@ class _NativeBannerViewState extends State<NativeBannerView>
   void didUpdateWidget(NativeBannerView oldWidget) {
     super.didUpdateWidget(oldWidget);
     _controller.future.then((NativeBannerViewController controller) {
-      _platformCallbacksHandler!._widget = widget;
+      _platformCallbacksHandler._widget = widget;
       controller._updateWidget(widget);
     });
   }
@@ -178,7 +178,7 @@ class _NativeBannerViewState extends State<NativeBannerView>
         widget, bannerViewPlatform, _platformCallbacksHandler);
     _controller.complete(controller);
     if (widget.onBannerViewCreated != null) {
-      widget.onBannerViewCreated!(controller);
+      widget.onBannerViewCreated(controller);
     }
   }
 }
@@ -198,7 +198,7 @@ class NativeBannerViewController {
 
   // todo unused_field
   // ignore: unused_field
-  final _PlatformCallbacksHandler? _platformCallbacksHandler;
+  final _PlatformCallbacksHandler _platformCallbacksHandler;
 
   // todo unused_field
   // ignore: unused_field
